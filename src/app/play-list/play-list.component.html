@@ -1,0 +1,21 @@
+<div class="video-player-wrapper">
+
+  <h2>Angular Video Player with Controls Example</h2>
+<div style="margin: 0.5rem;" *ngFor="let item of List">
+  <div style="display: flex;flex-direction: row; height: 100px;">
+    <div style="width: 40%;height: 100%;;text-align: right; padding-right: .2rem;word-wrap: break-word;overflow: hidden;">
+      <h4>{{item.name}}</h4>
+    </div>
+    <div (click)="PlaySelectedVideo(item)" style="width: 50%;height: 100%;cursor: pointer;">
+      <vg-player>
+      <vg-controls>
+        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+      </vg-controls>
+      <video [vgMedia]="$any(media)" #media [id]="item.id" crossorigin>
+        <source [src]="item.src" [type]="item.type">
+      </video>
+    </vg-player></div>
+  </div>
+  </div>
+
+</div>
